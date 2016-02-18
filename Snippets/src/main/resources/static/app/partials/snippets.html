@@ -1,0 +1,16 @@
+<a ui-sref="newSnippet" class="btn-primary btn-lg nodecoration">Novo Snippet</a>
+<br>
+
+<table class="table">
+  <tr>
+    <td><h3>Snippets</h3></td>
+    <td></td>
+  </tr>
+  <tr ng-repeat="snippet in snippets">
+    <td>{{snippet.nome}}</td>
+    <td>
+      <a class="btn btn-primary" ui-sref="viewSnippet({id:snippet.id})">Ver</a>
+      <a class="btn btn-danger"  ng-click="deleteSnippet(snippet)">Excluir</a>
+    </td>
+  </tr>
+</table>

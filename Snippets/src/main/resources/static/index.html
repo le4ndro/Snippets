@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html data-ng-app="snippetApp">
+  <head lang="pt-br">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/"/>
+    <title>The Snippet App</title>
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/bower_components/codemirror/lib/codemirror.css"/>
+    <link rel="stylesheet" type="text/css" href="/bower_components/codemirror/theme/twilight.css"/>    
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="snippets">Snippet KB App</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a ui-sref="snippets">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row top-buffer">
+        <div class="col-xs-8 col-xs-offset-2">
+          <div ui-view></div> <!-- This is where our views will load -->
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/controllers/snippetController.js"></script>
+    <script type="text/javascript" src="/app/services/snippetService.js"></script>   
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    
+    <script type="text/javascript" src="/bower_components/codemirror/lib/codemirror.js"></script>    
+    <script type="text/javascript" src="/bower_components/codemirror/mode/sql/sql.js"></script>
+    <script type="text/javascript" src="/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-codemirror/ui-codemirror.min.js"></script>
+    <script type="text/javascript" src="/bower_components/clipboard/dist/clipboard.min.js"></script>
+    <script type="text/javascript">
+	    var clipboard = new Clipboard('.btn');
+	
+	    clipboard.on('success', function(e) {
+	        console.info('Action:', e.action);
+	        console.info('Text:', e.text);
+	        console.info('Trigger:', e.trigger);
+	
+	        e.clearSelection();
+	    });
+	
+	    clipboard.on('error', function(e) {
+	        console.error('Action:', e.action);
+	        console.error('Trigger:', e.trigger);
+	    });
+    </script>     
+  </body>
+</html>

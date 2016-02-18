@@ -1,0 +1,37 @@
+<table class="table">
+  <tr>
+    <td><h3>{{snippet.nome}}</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Descrição</td>
+    <td>{{snippet.descricao}}</td>
+  </tr>
+  <tr>
+    <td>Autor</td>
+    <td>{{snippet.autor}}</td>
+  </tr>
+  <tr>
+    <td>Linguagem</td>
+    <td>{{snippet.linguagem}}</td>
+  </tr>
+  <tr>
+    <td>tags</td>
+    <td>{{snippet.tags}}</td>
+  </tr>
+  <tr>
+    <td>Código</td>
+    <td>
+    	<div style="display: none">
+    	<input type="text" ng-model="snippet.codigo" id="code" />
+    	</div>
+    	<button class="btn" data-clipboard-target="#code" data-clipboard-action="copy">Copiar</button>
+    </td>
+    
+  </tr>
+</table>
+<textarea ui-codemirror="cmOption" ng-model="snippet.codigo"></textarea>
+<br><br>
+<div>
+  <a class="btn btn-primary" ui-sref="editSnippet({id:snippet.id})">Edit</a>
+</div>
